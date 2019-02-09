@@ -1,0 +1,64 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko ifnot: isItemsBlockExpanded() -->
+<div class="block items-in-cart iwd-items-wrapper-one" data-bind="mageInit: {'collapsible':{'openedState': 'active'}}">
+    <!--<div class="title" data-role="title">-->
+        <!--<strong role="heading"><span data-bind="text: getItemsQty()"></span>-->
+            <!--&lt;!&ndash; ko if: getItemsQty() == 1 &ndash;&gt;-->
+            <!--&lt;!&ndash; ko i18n: 'Item in Cart' &ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; ko if: getItemsQty() > 1 &ndash;&gt;-->
+            <!--&lt;!&ndash; ko i18n: 'Items in Cart' &ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; /ko &ndash;&gt;-->
+        <!--</strong>-->
+    <!--</div>-->
+    <div class="content minicart-items" data-role="content">
+        <div class="iwd-minicart-items-wrapper-one minicart-items-wrapper overflowed">
+            <ol class="minicart-items">
+                <!-- ko foreach: getItems() -->
+                <li class=" product-item">
+                    <div class="product">
+                        <!-- ko foreach: $parent.elems() -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                        <!-- /ko -->
+                    </div>
+                </li>
+                <!-- /ko -->
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
+<!-- ko if: isItemsBlockExpanded() -->
+<div class="block items-in-cart iwd-items-wrapper-two" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': true}}">
+    <!--<div class="title" data-role="title">-->
+        <!--<strong role="heading"><span data-bind="text: getItemsQty()"></span>-->
+            <!--&lt;!&ndash; ko if: getItemsQty() == 1 &ndash;&gt;-->
+            <!--&lt;!&ndash; ko i18n: 'Item in Cart' &ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; ko if: getItemsQty() > 1 &ndash;&gt;-->
+            <!--&lt;!&ndash; ko i18n: 'Items in Cart' &ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;-->
+            <!--&lt;!&ndash; /ko &ndash;&gt;-->
+        <!--</strong>-->
+    <!--</div>-->
+    <div class="content minicart-items" data-role="content">
+        <div class="iwd-minicart-items-wrapper-two  minicart-items-wrapper overflowed">
+            <ol class="minicart-items">
+                <!-- ko foreach: getItems() -->
+                <li class="iwd-opc-product-details product-item">
+                    <div class="product">
+                        <!-- ko foreach: $parent.elems() -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                        <!-- /ko -->
+                    </div>
+                </li>
+                <!-- /ko -->
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

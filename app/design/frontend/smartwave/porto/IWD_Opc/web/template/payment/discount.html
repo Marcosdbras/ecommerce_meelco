@@ -1,0 +1,51 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="payment-option _collapsible opc-payment-additional discount-code iwd-discount-code-wrapper iwd-opc-additional-blocks"
+     data-bind="mageInit: {'collapsible':{'openedState': '_active'}}, myTestHandler: {} ">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action iwd-action-toggle action-toggle" id="block-discount-heading" role="heading" aria-level="2">
+            <!-- ko i18n: 'Discount Codes'--><!-- /ko -->
+        </span>
+    </div>
+    <div class="iwd-payment-option-content payment-option-content" data-role="content">
+
+        <form class="form form-discount iwd-discount-form iwd-additional-block-form-wrapper" id="discount-form" data-bind="blockLoader: isLoading">
+            <div class="payment-option-inner">
+                <div class="field">
+                    <label class="label iwd-additional-block-code-label" for="discount-code">
+                        <span class="iwd-additional-block-code-name" data-bind="i18n: 'Enter your coupon code:'"></span>
+                    </label>
+                    <div class="control">
+                        <input class="input-text iwd-input-for-code"
+                               type="text"
+                               id="discount-code"
+                               name="discount_code"
+                               data-validate="{'required-entry':true}"
+                               data-bind="value: couponCode, attr:{placeholder: $t('')} " />
+                    </div>
+                </div>
+            </div>
+            <!-- ko foreach: getRegion('messages') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <div class="iwd-actions-toolbar actions-toolbar">
+                <div class="primary">
+                    <!-- ko ifnot: isApplied() -->
+                    <button class="action iwd-action-code-button iwd-action-apply action-apply" type="submit" data-bind="'value': $t('Apply Discount'), click: apply">
+                        <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko if: isApplied() -->
+                    <button class="action iwd-action-code-button iwd-action-cancel action-cancel" type="submit" data-bind="'value': $t('Cancel'), click: cancel">
+                        <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

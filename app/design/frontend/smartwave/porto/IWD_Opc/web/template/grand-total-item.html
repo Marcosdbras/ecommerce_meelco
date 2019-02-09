@@ -1,0 +1,17 @@
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko if: isDisplayed() -->
+<div class="iwd-grand-total-item">
+
+    <span class="iwd-grand-total-item-label" data-bind="i18n: 'Grand Total'"></span>
+    <span class="iwd-grand-total-item" data-bind="text: getValue(), attr:{'data-label': title}"></span>
+
+    <!-- ko foreach: elems() -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</div>
+<!-- /ko -->

@@ -1,0 +1,12 @@
+<div>
+</div>
+<?php
+    $discount_enable = $block->getDiscountsEnable();
+    if(!$discount_enable)
+        $discount_enable = '""';
+?>
+<script>
+    // <![CDATA[
+    window.discountEnable = <?php echo $discount_enable; ?>;
+    // ]]>
+</script>

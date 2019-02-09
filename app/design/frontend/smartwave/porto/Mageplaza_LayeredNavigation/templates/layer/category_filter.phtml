@@ -1,0 +1,42 @@
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+?>
+<?php if($category): ?>
+<?php
+    $categoryHelper = $this->helper('Magento\Catalog\Helper\Category');
+    $subcategories=$category->getCategories($category->getId());
+    if(count($subcategories)>0){
+?>
+<div class="block-category-list">
+    <div class="block-title">
+        <strong><?php echo $category->getName() ?></strong>
+    </div>
+    <div class="block-content">
+        <ol class="items">
+        <?php
+        foreach($subcategories as $subcategory){
+            if (!$subcategory->getIsActive()) {
+                continue;
+            }
+        ?>
+            <li class="item">
+                <a href="<?php echo $categoryHelper->getCategoryUrl($subcategory) ?>"><?php echo $subcategory->getName() ?></a>
+            </li>
+        <?php
+            }
+        ?>
+        </ol>
+    </div>
+    <script type="text/javascript">
+    require([
+        'jquery'
+    ], function ($) {
+        $("#layered-filter-block").before($(".block.block-category-list"));
+    });
+    </script>
+</div>
+<?php
+    }
+?>
+<?php endif; ?>
